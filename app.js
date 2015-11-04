@@ -4,9 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var add = require('./routes/add')
-var subtract = require('./routes/subtract')
-var multiply = require('./routes/multiply')
+var add = require('./routes/add');
+var subtract = require('./routes/subtract');
+var multiply = require('./routes/multiply');
+var divide = require('./routes/divide');
 var routes = require('./routes/index');
 
 var app = express();
@@ -26,6 +27,7 @@ app.use('/', routes);
 app.use('/add', add);
 app.use('/subtract', subtract);
 app.use('/multiply', multiply);
+app.use('/divide', divide);
 
 // catch 500 and forward to error handler
 app.use('/500', function(req, res, next) {
