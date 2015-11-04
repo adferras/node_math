@@ -27,9 +27,13 @@ function stack_trace_404(env) {
 };
 
 describe('test stack trace visibility in each environment', function() {
-  stack_trace_404('development');
-  stack_trace_404('test');
-  stack_trace_404('production');
+  context('production', function() {
+    stack_trace_404('production');
+  });
+
+  context('development', function() {
+    stack_trace_404('development');
+  });
 });
 
 describe('App', function() {
