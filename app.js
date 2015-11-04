@@ -24,8 +24,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 
 // addition example
-var addition = require('./routes/addition')
-app.use('/addition', addition);
+var add = require('./routes/add')
+app.use('/add', add);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -10,7 +10,7 @@ router.use(function timeLog(req, res, next) {
 // define the home page route
 router.get('/', function(req, res) {
   // res.send('Addition page');
-  res.send('addition');
+  res.send('add');
 });
 
 // addition
