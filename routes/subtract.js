@@ -9,14 +9,14 @@ router.use(function timeLog(req, res, next) {
 
 // define the home page route
 router.get('/', function(req, res) {
-  res.send('add');
+  res.send('subtract');
 });
 
 // addition
 router.get('/:first/:second', function(req, res) {
   var first = req.params.first;
   var second = req.params.second;
-  var result = Number(first) + Number(second)
+  var result = Number(first) - Number(second)
   console.log('first: ' + first + ', second: ' + second);
   console.log('result: ' + result);
   res.send('result:' + result);
