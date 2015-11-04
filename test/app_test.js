@@ -49,6 +49,12 @@ describe('App', function() {
     });
   });
 
-  xit('should generate a 500 error', function(done) {
+  it('should generate a 500 error', function(done) {
+    chai.request(server)
+    .get('/500')
+    .end(function(err, res){
+      expect(res.status).to.equal(500);
+      done();
+    });
   });
 });
