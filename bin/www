@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('node_addition:server');
+var debug = require('debug')('node_math:server');
 var http = require('http');
 
 /**
