@@ -35,14 +35,13 @@ app.use(function(req, res, next) {
 });
 
 // error handlers
-
-
 // stacktraces only shown if in development
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
-    error: (process.env.NODE_ENV === 'production') ? {} : err
+    error: (process.env.NODE_ENV === 'production') ?
+      {} : err
   });
 });
 

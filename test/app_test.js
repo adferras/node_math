@@ -9,16 +9,18 @@ var assert = chai.assert;
 chai.use(chaiHttp);
 
 function stack_trace_404(env) {
-  process.env.NODE_ENV = env;
   it('should 404 if navigating to a page that does not exist', function(done) {
+    process.env.NODE_ENV = env;
     chai.request(server)
     .get('/doesnotexist')
     .end(function(err, res){
       expect(res.status).to.equal(404);
       expect(res.text).to.contain('Not Found');
       if (process.env.NODE_ENV === 'production') {
-        expect(res.text).to.not.contain('Error');
+        console.log('prod');
+        expect(res.text).to.be.blank;
       } else {
+        console.log('other');
         expect(res.text).to.contain('Error');
       }
       done();
