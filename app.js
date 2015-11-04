@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var add = require('./routes/add')
 var subtract = require('./routes/subtract')
+var multiply = require('./routes/multiply')
 var routes = require('./routes/index');
 
 var app = express();
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/add', add);
 app.use('/subtract', subtract);
+app.use('/multiply', multiply);
 
 // catch 500 and forward to error handler
 app.use('/500', function(req, res, next) {

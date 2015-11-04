@@ -6,60 +6,60 @@ var expect = require('expect.js')
 
 chai.use(chaiHttp);
 
-describe('Subtraction', function() {
+describe('Multiplication', function() {
   it('should show the multiplication home page', function(done) {
     chai.request(server)
-    .get('/subtract')
+    .get('/multiply')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('subtract');
+      expect(res.text).to.contain('multiply');
       done();
     });
   });
 
-  it('should subtract positive whole numbers', function(done) {
+  it('should multiply positive whole numbers', function(done) {
     chai.request(server)
-    .get('/subtract/2/5')
+    .get('/multiply/2/5')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('-3');
+      expect(res.text).to.contain('10');
       done();
     });
   });
 
-  it('should subtract two negative numbers', function(done) {
+  it('should multiply two negative numbers', function(done) {
     chai.request(server)
-    .get('/subtract/-4/-6')
+    .get('/multiply/-4/-6')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('2');
+      expect(res.text).to.contain('24');
       done();
     });
   });
 
-  it('should subtract using zero', function(done) {
+  it('should multiply using zero', function(done) {
     chai.request(server)
-    .get('/subtract/0/7')
+    .get('/multiply/0/7')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('-7');
+      expect(res.text).to.contain('0');
       done();
     });
   });
 
-  it('should subtract decimal numbers', function(done) {
+  it('should multiply decimal numbers', function(done) {
     chai.request(server)
-    .get('/subtract/1.5/3.5')
+    .get('/multiply/1.5/3.5')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('-2');
+      expect(res.text).to.contain('5.25');
       done();
     });
   });
 
   it('should return NaN if not given numbers', function(done) {
     chai.request(server)
-      .get('/subtract/number/number')
+      .get('/multiply/number/number')
       .end(function(err, res){
         expect(res.status).to.equal(200);
         expect(res.text).to.contain('NaN');
