@@ -8,33 +8,33 @@ var assert = chai.assert;
 
 chai.use(chaiHttp);
 
-function stack_trace_404(env) {
-  it('should 404 if navigating to a page that does not exist', function(done) {
-    process.env.NODE_ENV = env;
+function stack_trace_404() {
     chai.request(server)
     .get('/doesnotexist')
     .end(function(err, res){
       expect(res.status).to.equal(404);
       expect(res.text).to.contain('Not Found');
       if (process.env.NODE_ENV === 'production') {
-        console.log('prod');
         expect(res.text).to.be.blank;
       } else {
-        console.log('other');
         expect(res.text).to.contain('Error');
       }
-      done();
     });
-  });
 };
 
-describe('test stack trace visibility in each environment', function() {
+describe('test stack trace visibility', function() {
   context('production', function() {
-    stack_trace_404('production');
+    it('does not display stack trace', function() {
+      process.env.NODE_ENV = 'production';
+      stack_trace_404();
+    });
   });
 
   context('development', function() {
-    stack_trace_404('development');
+    it('displays stack trace', function() {
+      process.env.NODE_ENV = 'development';
+      stack_trace_404();
+    });
   });
 });
 
