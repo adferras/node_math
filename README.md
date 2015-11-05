@@ -1,4 +1,7 @@
 # Node Math
+[![Build
+Status](http://localhost:8080/job/node_math/badge/icon)](http://localhost:8080/job/node_math/)
+
 This is an application that will perform math functions based upon url.
 
 The application is deployed at: https://nodemath4899.herokuapp.com/
