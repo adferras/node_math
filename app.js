@@ -31,7 +31,7 @@ app.use('/divide', divide);
 
 // catch 500 and forward to error handler
 app.use('/500', function(req, res, next) {
-  var err = new Error('Bad error')
+  var err = new Error('Bad error');
   err.status = 500;
   next(err);
 });

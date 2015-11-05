@@ -20,7 +20,7 @@ function stack_trace_404() {
         expect(res.text).to.contain('Error');
       }
     });
-};
+}
 
 describe('test stack trace visibility', function() {
   context('production', function() {
