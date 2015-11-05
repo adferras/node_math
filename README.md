@@ -1,6 +1,5 @@
 # Node Math
-[![Build
-Status](http://localhost:8080/job/node_math/badge/icon)](http://localhost:8080/job/node_math/)
+[![Build Status](https://travis-ci.org/adferras/node_math.svg?branch=master)](https://travis-ci.org/adferras/node_math)
 
 This is an application that will perform math functions based upon url.
 
