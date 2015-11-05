@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "env-test": "^1.0.0",
+    "jshint": "^2.8.0",
     "mocha": "~1.10.0",
     "supervisor": "~0.5.2"
   }
