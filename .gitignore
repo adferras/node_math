@@ -1,5 +1,2 @@
-# Ignore coverage files
-/coverage
-
 # Debug files
 npm-debug.log
