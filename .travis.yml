@@ -6,7 +6,8 @@ node_js:
   - "0.11"
   - "0.10"
   - "iojs"
-before_install:
-  - pip install codecov
-after_success:
+install:
+  - npm install -g codecov
+script:
+  - istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec
   - codecov
