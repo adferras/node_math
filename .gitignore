@@ -1,2 +1,5 @@
+# Code coverage
+/coverage
+
 # Debug files
 npm-debug.log
