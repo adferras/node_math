@@ -11,6 +11,17 @@ The application is deployed at: https://nodemath4899.herokuapp.com/
 To use the app, just pass in the operation and the two numbers that you
 wish to operate on into the url.
 
+Operations include:
+
+https://nodemath4899.herokuapp.com/add/
+
+https://nodemath4899.herokuapp.com/subtract/
+
+https://nodemath4899.herokuapp.com/multiply/
+
+https://nodemath4899.herokuapp.com/divide/
+
+
 Examples include:
 
 https://nodemath4899.herokuapp.com/add/2/4
