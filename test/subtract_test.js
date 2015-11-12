@@ -11,7 +11,7 @@ describe('Subtraction', function() {
     .get('/subtract')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('subtract');
+      expect(res.text).to.equal('subtract');
       done();
     });
   });
@@ -21,7 +21,7 @@ describe('Subtraction', function() {
     .get('/subtract/2/5')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('-3');
+      expect(res.body.result).to.equal(-3);
       done();
     });
   });
@@ -31,7 +31,7 @@ describe('Subtraction', function() {
     .get('/subtract/-4/-6')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('2');
+      expect(res.body.result).to.equal(2);
       done();
     });
   });
@@ -41,7 +41,7 @@ describe('Subtraction', function() {
     .get('/subtract/0/7')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('-7');
+      expect(res.body.result).to.equal(-7);
       done();
     });
   });
@@ -51,17 +51,17 @@ describe('Subtraction', function() {
     .get('/subtract/1.5/3.5')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('-2');
+      expect(res.body.result).to.equal(-2);
       done();
     });
   });
 
-  it('should return NaN if not given numbers', function(done) {
+  it('should return null if not given numbers', function(done) {
     chai.request(server)
       .get('/subtract/number/number')
       .end(function(err, res){
         expect(res.status).to.equal(200);
-        expect(res.text).to.contain('NaN');
+        expect(res.body.result).to.equal(null);
         done();
       });
     });

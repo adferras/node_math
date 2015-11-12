@@ -11,7 +11,7 @@ describe('Addition', function() {
     .get('/add')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('add');
+      expect(res.text).to.equal('add');
       done();
     });
   });
@@ -21,7 +21,7 @@ describe('Addition', function() {
     .get('/add/2/5')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('7');
+      expect(res.body.result).to.equal(7);
       done();
     });
   });
@@ -31,7 +31,7 @@ describe('Addition', function() {
     .get('/add/-4/-6')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('-10');
+      expect(res.body.result).to.equal(-10);
       done();
     });
   });
@@ -41,7 +41,7 @@ describe('Addition', function() {
     .get('/add/0/7')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('7');
+      expect(res.body.result).to.equal(7);
       done();
     });
   });
@@ -51,17 +51,17 @@ describe('Addition', function() {
     .get('/add/1.23/4.77')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('6');
+      expect(res.body.result).to.equal(6);
       done();
     });
   });
 
-  it('should return NaN if not given numbers', function(done) {
+  it('should return null if not given numbers', function(done) {
     chai.request(server)
       .get('/add/number/number')
       .end(function(err, res){
         expect(res.status).to.equal(200);
-        expect(res.text).to.contain('NaN');
+        expect(res.body.result).to.equal(null);
         done();
       });
     });
