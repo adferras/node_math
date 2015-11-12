@@ -11,7 +11,7 @@ describe('Multiplication', function() {
     .get('/multiply')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('multiply');
+      expect(res.text).to.equal('multiply');
       done();
     });
   });
@@ -21,7 +21,7 @@ describe('Multiplication', function() {
     .get('/multiply/2/5')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('10');
+      expect(res.body.result).to.equal(10);
       done();
     });
   });
@@ -31,7 +31,7 @@ describe('Multiplication', function() {
     .get('/multiply/-4/-6')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('24');
+      expect(res.body.result).to.equal(24);
       done();
     });
   });
@@ -41,7 +41,7 @@ describe('Multiplication', function() {
     .get('/multiply/0/7')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('0');
+      expect(res.body.result).to.equal(0);
       done();
     });
   });
@@ -51,17 +51,17 @@ describe('Multiplication', function() {
     .get('/multiply/1.5/3.5')
     .end(function(err, res){
       expect(res.status).to.equal(200);
-      expect(res.text).to.contain('5.25');
+      expect(res.body.result).to.equal(5.25);
       done();
     });
   });
 
-  it('should return NaN if not given numbers', function(done) {
+  it('should return null if not given numbers', function(done) {
     chai.request(server)
       .get('/multiply/number/number')
       .end(function(err, res){
         expect(res.status).to.equal(200);
-        expect(res.text).to.contain('NaN');
+        expect(res.body.result).to.equal(null);
         done();
       });
     });

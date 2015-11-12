@@ -18,9 +18,10 @@ router.get('/:first/:second', function(req, res) {
   var second = req.params.second;
   var result = Number(first) - Number(second);
   console.log('first: ' + first + ', second: ' + second);
-  var to_json = ('result : ' + result);
-  console.log(to_json);
-  res.send(JSON.stringify(to_json));
+  var json_data = {};
+  json_data.result = result;
+  console.log(json_data);
+  res.send(json_data);
   res.end();
 });
 
