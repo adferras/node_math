@@ -6,7 +6,7 @@
     "autotest": "supervisor -q -n exit -x mocha --reporter spec -- -b",
     "test": "./node_modules/.bin/mocha --reporter spec",
     "start": "node ./bin/www",
-    "coverage": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --ui bdd -R spec -t 5000"
+    "coverage": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- --ui bdd -R spec -t 50000"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
